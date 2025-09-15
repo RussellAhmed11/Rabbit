@@ -21,15 +21,17 @@ const CollectionPage = () => {
         // add event listener
         document.addEventListener('mousedown',handleClickOutside)
         // remove event listener
-        document.removeEventListener('mousedown',handleClickOutside)
-    })
+        return ()=>{
+            document.removeEventListener('mousedown',handleClickOutside)
+        }
+    },[])
     useEffect(() => {
         setTimeout(() => {
             const fetchedProducts = [
                 {
                     _id: 1,
                     name: "product 1",
-                    price: 175,
+                    price: 65,
                     image: [{ url: "https://picsum.photos/500/500?random=9" }]
                 },
                 {
@@ -47,7 +49,7 @@ const CollectionPage = () => {
                 {
                     _id: 4,
                     name: "product 5",
-                    price: 100,
+                    price: 95,
                     image: [{ url: "https://picsum.photos/500/500?random=12" }]
                 },
                 {
@@ -71,7 +73,7 @@ const CollectionPage = () => {
                 {
                     _id: 8,
                     name: "product 8",
-                    price: 125,
+                    price: 60,
                     image: [{ url: "https://picsum.photos/500/500?random=15" }]
                 },
             ]
