@@ -21,7 +21,7 @@ const Navbar = () => {
                     <Link to="/" className='text-2xl font-medium'>Rabbit</Link>
                 </div>
                 <div className='hidden md:flex space-x-6'>
-                    <Link to="/" className="text-gray-700 text-sm font-medium uppercase hover:text-black">Man</Link>
+                    <Link to="/collections/all" className="text-gray-700 text-sm font-medium uppercase hover:text-black">Man</Link>
                     <Link to="/" className="text-gray-700 text-sm font-medium uppercase hover:text-black">Women</Link>
                     <Link to="/" className="text-gray-700 text-sm font-medium uppercase hover:text-black">Top Wear</Link>
                     <Link to="/" className="text-gray-700 text-sm font-medium uppercase hover:text-black">Bottom Wear</Link>
