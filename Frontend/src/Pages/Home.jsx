@@ -65,7 +65,11 @@ const Home = () => {
             <GenderCollectionSection />
             <NewArrivals />
             {/* Best seller section */}
-            <ProductDetails />
+            <div>
+                <h2 className='text-3xl text-center font-bold mb-4'>Best Seller</h2> 
+                  <ProductDetails />
+            </div>
+          
             <div className='container mx-auto'>
                 <h2 className='text-3xl text-center font-bold mb-4'>Top Wears For Women</h2>
                 <ProductGrid products={placeholderProducts} />

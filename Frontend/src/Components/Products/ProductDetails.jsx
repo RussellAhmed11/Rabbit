@@ -78,8 +78,6 @@ const handleAddToCart=()=>{
     },500)
 }
     return (
-        <div>
-            <h2 className='text-3xl text-center font-bold mb-4'>Best Seller</h2>
             <div className="p-6">
                 <div className="max-w-6xl mx-auto bg-white rounded-lg">
                     <div className="flex flex-col md:flex-row">
@@ -173,7 +171,6 @@ const handleAddToCart=()=>{
                     </div>
                 </div>
             </div>
-        </div>
     );
 };
 
