@@ -12,7 +12,7 @@ const selectedProduct = {
     sizes: ["S", "M", "L", "XL"],
     colors: ["Red", "Black"],
     images: [{
-        url: "https://picsum.photos/500/500?random=1",
+        url:"https://picsum.photos/500/500?random=1",
         alltText: "stylish Jacket 1"
     },
     {

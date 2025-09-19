@@ -3,6 +3,7 @@ const cors=require("cors");
 const dotenv=require("dotenv")
 const connectDB=require("./Config/db")
 const userRoutes=require("./Routes/UserRoutes")
+const productsRoute=require("./Routes/ProductRoutes")
 
 const app=express();
 
@@ -18,6 +19,9 @@ connectDB()
 
 // Api routes
 app.use("/api/users",userRoutes)
+
+app.use("/api/products",productsRoute)
+
 app.get("/",(req,res)=>{
     res.send("well come to rabbit server")
 })
