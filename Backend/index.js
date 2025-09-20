@@ -4,6 +4,7 @@ const dotenv=require("dotenv")
 const connectDB=require("./Config/db")
 const userRoutes=require("./Routes/UserRoutes")
 const productsRoute=require("./Routes/ProductRoutes")
+const cartRoute=require("./Routes/CartRoutes")
 
 const app=express();
 
@@ -19,8 +20,8 @@ connectDB()
 
 // Api routes
 app.use("/api/users",userRoutes)
-
 app.use("/api/products",productsRoute)
+app.use("/api/cart",cartRoute)
 
 app.get("/",(req,res)=>{
     res.send("well come to rabbit server")
