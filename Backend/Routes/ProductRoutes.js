@@ -196,7 +196,7 @@ router.get("/", async (req, res) => {
                     sort = { price: -1 };
                     break;
                 case "popularity":
-                    sort = { rating: -1 };
+                    sort = { rSating: -1 };
                     break;
                 default:
                     break;
@@ -211,4 +211,65 @@ router.get("/", async (req, res) => {
         res.status(500).send("server error")
     }
 })
+
+// get/api/product/best-seller api
+router.get("/best-seller",async(req,res)=>{
+try{
+    const bestSeller=await Product.findOne().sort({rating:-1})
+    if(bestSeller){
+        res.json(bestSeller)
+    }else{
+        res.status(404).json({message:"No best seller found"})
+    }
+}catch(error){
+    console.log(error)
+    res.status(500).send("server error")
+}
+})
+// get/api/products/new-arrivals
+router.get("/new-arraivals",async(req,res)=>{
+    try{
+      const newArrivals=await Product.find().sort({createAt:-1}).limit(8)
+      res.json(newArrivals)
+    }catch(error){
+        console.log(error)
+        res.status(500).send("server error")
+    }
+})
+// api to get product details
+router.get("/:id",async(req,res)=>{
+try{
+ const product=await Product.findById(req.params.id)
+ if(product){
+    res.json(product)
+ }else{
+    res.status(404).json({message:"product not found"})
+ }
+}catch(error){
+    console.log(error)
+    res.status(500).send("server error")
+}
+})
+// get api for similar product details
+
+router.get("/similar/:id",async(req,res)=>{
+    const {id}=req.params
+   try{
+    const product=await Product.findById(id)
+    if(!product){
+        return res.status(404).json({message:"product not founf"})
+    }
+    const similarProduct=await Product.find({
+        _id:{$ne:id}, // Exculde the current product id
+        gender:product.gender,
+        category:product.category,
+    }).limit(4);
+    res.json(similarProduct)
+   }catch(err){
+    console.log(err)
+    res.status(500).send("Server Error")
+   }
+})
+
+
 module.exports = router;
