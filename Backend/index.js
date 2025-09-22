@@ -5,6 +5,7 @@ const connectDB=require("./Config/db")
 const userRoutes=require("./Routes/UserRoutes")
 const productsRoute=require("./Routes/ProductRoutes")
 const cartRoute=require("./Routes/CartRoutes")
+const checkoutRoute=require("./Routes/CheckoutRoute")
 
 const app=express();
 
@@ -22,6 +23,7 @@ connectDB()
 app.use("/api/users",userRoutes)
 app.use("/api/products",productsRoute)
 app.use("/api/cart",cartRoute)
+app.use("/api/checkout",checkoutRoute)
 
 app.get("/",(req,res)=>{
     res.send("well come to rabbit server")
