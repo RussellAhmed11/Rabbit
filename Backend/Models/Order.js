@@ -11,7 +11,7 @@ const orderItemSchema=new mongoose.Schema({
         type:String,
         required:true,
     },
-    email:{
+    image:{
         type:String,
         required:true,
     },

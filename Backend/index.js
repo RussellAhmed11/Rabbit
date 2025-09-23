@@ -6,7 +6,7 @@ const userRoutes=require("./Routes/UserRoutes")
 const productsRoute=require("./Routes/ProductRoutes")
 const cartRoute=require("./Routes/CartRoutes")
 const checkoutRoute=require("./Routes/CheckoutRoute")
-
+const orderRoutes=require("./Routes/OrderRoutes")
 const app=express();
 
 // medlware
@@ -24,6 +24,8 @@ app.use("/api/users",userRoutes)
 app.use("/api/products",productsRoute)
 app.use("/api/cart",cartRoute)
 app.use("/api/checkout",checkoutRoute)
+app.use("/api/orders",orderRoutes)
+
 
 app.get("/",(req,res)=>{
     res.send("well come to rabbit server")

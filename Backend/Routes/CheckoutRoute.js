@@ -7,7 +7,7 @@ const {protect}=require("../middleware/AuthMiddleware")
 
 const router=express.Router()
 // post/api/checkout
-// create new checkout session,private
+// creates new checkout session,private
 router.post("/",protect,async(req,res)=>{
   const {checkoutItems,shippingAddress,paymentMethod,totalPrice}=req.body;
   if(!checkoutItems || checkoutItems.length ===0){
@@ -71,7 +71,7 @@ router.post("/:id/finalize",protect,async(req,res)=>{
     //  create final order based on the checkout details
     const finalOrder=await Order.create({
         user:checkout.user,
-        orderItems:checkout.orderItems,
+        orderItems:checkout.checkoutItems,
         shippingAddress:checkout.shippingAddress,
         paymentMethod:checkout.paymentMethod,
         totalPrice:checkout.totalPrice,
