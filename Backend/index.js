@@ -7,6 +7,7 @@ const productsRoute=require("./Routes/ProductRoutes")
 const cartRoute=require("./Routes/CartRoutes")
 const checkoutRoute=require("./Routes/CheckoutRoute")
 const orderRoutes=require("./Routes/OrderRoutes")
+const uploadRoutes=require("./Routes/UploadRoutes")
 const app=express();
 
 // medlware
@@ -25,6 +26,7 @@ app.use("/api/products",productsRoute)
 app.use("/api/cart",cartRoute)
 app.use("/api/checkout",checkoutRoute)
 app.use("/api/orders",orderRoutes)
+app.use("/api/upload",uploadRoutes)
 
 
 app.get("/",(req,res)=>{
