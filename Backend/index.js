@@ -9,6 +9,9 @@ const checkoutRoute=require("./Routes/CheckoutRoute")
 const orderRoutes=require("./Routes/OrderRoutes")
 const uploadRoutes=require("./Routes/UploadRoutes")
 const subscriberRoutes=require("./Routes/SubscriberRoute")
+const adminRoutes=require("./Routes/AdminRoutes")
+const productAdminRoutes=require("./Routes/productAdminRoute")
+const adminOrdersRoutes=require("./Routes/AdminOrderRoutes")
 const app=express();
 
 // medlware
@@ -29,6 +32,12 @@ app.use("/api/checkout",checkoutRoute)
 app.use("/api/orders",orderRoutes)
 app.use("/api/upload",uploadRoutes)
 app.use("/api",subscriberRoutes)
+
+
+// admin
+app.use("/api/admin/users",adminRoutes)
+app.use("/api/admin/products",productAdminRoutes)
+app.use("/api/admin/orders",adminOrdersRoutes)
 
 
 app.get("/",(req,res)=>{
