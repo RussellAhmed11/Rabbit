@@ -141,7 +141,7 @@ router.get("/", async (req, res) => {
 //post request api/cart/merge
 // Merge guest cart into user cart on login
 router.post("/merge",protect, async (req, res) => {
-    console.log(req.user)
+   
     const { guestId } = req.body;
    
     try {
